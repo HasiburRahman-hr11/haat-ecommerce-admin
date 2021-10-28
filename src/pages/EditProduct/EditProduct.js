@@ -119,9 +119,7 @@ const EditProduct = () => {
                 token: admin.accessToken
             }
         }
-
         updateProduct(dispatchProduct, formData, config, params.productId)
-
     }
 
 
@@ -129,7 +127,7 @@ const EditProduct = () => {
         setAllCategory(dbCategories);
         const fetchProduct = async () => {
             try {
-                const { data } = await axios.get(`/api/products/${params.productId}`);
+                const { data } = await axios.get(`https://hidden-crag-34912.herokuapp.com/api/products/${params.productId}`);
                 setProduct(data);
                 setDefaultValues(data);
 
@@ -148,15 +146,15 @@ const EditProduct = () => {
             setSizes(product.sizes.join() || '');
             setStock(product.stock || '');
             setInstock(product.inStock);
-            setThumbnailPreview(process.env.REACT_APP_SERVER_URL + product.thumbnail);
+            setThumbnailPreview( product.thumbnail);
             if (product.gallery && product.gallery.length > 0) {
                 const initialGallery = [];
                 product.gallery.forEach(item => {
-                    initialGallery.push(process.env.REACT_APP_SERVER_URL + item)
+                    initialGallery.push( item)
                 });
                 setGalleryImages(initialGallery);
             }
-            setSelectedCategory(product.categories);
+            setSelectedCategory([...product.categories]);
 
             categoriesRef?.current?.childNodes.forEach(li => {
                 product.categories.forEach(cat => {

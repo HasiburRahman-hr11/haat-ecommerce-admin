@@ -118,6 +118,8 @@ const AddProduct = () => {
             }
         }
 
+        console.log(selectedCategory)
+
         addNewProduct(dispatchProduct, formData, config, history);
 
     }

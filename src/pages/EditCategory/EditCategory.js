@@ -47,7 +47,7 @@ const EditCategory = () => {
     useEffect(() => {
         const fetchTheCategory = async () => {
             try {
-                const { data } = await axios.get(`/api/category/${params.catId}`);
+                const { data } = await axios.get(`https://hidden-crag-34912.herokuapp.com/api/category/${params.catId}`);
                 setCategory(data);
                 setDefaultValues(data);
 
@@ -60,7 +60,7 @@ const EditCategory = () => {
         const setDefaultValues = (category) => {
             setTitle(category.title);
             setDescription(category.description);
-            setThumbnailPreview(process.env.REACT_APP_SERVER_URL + category.thumbnail);
+            setThumbnailPreview(category.thumbnail);
         }
     }, [params.catId]);
 

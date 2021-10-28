@@ -4,7 +4,7 @@ import { loginFailed, loginStart, loginSuccess, logoutStart, logoutSuccess } fro
 export const login = async (dispatch, formData) => {
     dispatch(loginStart());
     try {
-        const { data } = await axios.post('/api/auth/signin', formData);
+        const { data } = await axios.post('https://hidden-crag-34912.herokuapp.com/api/auth/signin', formData);
         dispatch(loginSuccess(data));
         localStorage.setItem('admin', JSON.stringify(data));
     } catch (error) {

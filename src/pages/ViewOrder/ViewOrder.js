@@ -32,7 +32,7 @@ const ViewOrder = () => {
         const fetchOrder = async () => {
             setLoading(true)
             try {
-                const { data } = await axios.get(`/api/orders/${params.orderId}`, {
+                const { data } = await axios.get(`https://hidden-crag-34912.herokuapp.com/api/orders/${params.orderId}`, {
                     headers: {
                         token: admin.accessToken
                     }

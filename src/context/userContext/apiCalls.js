@@ -7,7 +7,7 @@ import { successNotify, errorNotify } from '../../utils/toastify';
 export const getAllUsers = async (dispatch, token) => {
     dispatch(getAllUsersStart());
     try {
-        const { data } = await axios.get('/api/users', {
+        const { data } = await axios.get('https://hidden-crag-34912.herokuapp.com/api/users', {
             headers: {
                 token: token
             }
@@ -25,7 +25,7 @@ export const getAllUsers = async (dispatch, token) => {
 export const updateUser = async (dispatch, userId, userData, token) => {
     dispatch(updateUserStart());
     try {
-        const { data } = await axios.put(`/api/users/edit/${userId}`, userData, {
+        const { data } = await axios.put(`https://hidden-crag-34912.herokuapp.com/api/users/edit/${userId}`, userData, {
             headers: {
                 token: token
             }
@@ -44,7 +44,7 @@ export const updateUser = async (dispatch, userId, userData, token) => {
 export const deleteUser = async (dispatch, userId, token) => {
     dispatch(deleteUserStart());
     try {
-        const { data } = await axios.delete(`/api/users/delete/${userId}`, {
+        const { data } = await axios.delete(`https://hidden-crag-34912.herokuapp.com/api/users/delete/${userId}`, {
             headers: {
                 token: token
             }
@@ -63,7 +63,7 @@ export const deleteUser = async (dispatch, userId, token) => {
 export const deleteManyUser = async (dispatch, users, token) => {
     dispatch(deleteManyUsersStart());
     try {
-        const { data } = await axios.post('/api/users/delete/many',
+        const { data } = await axios.post('https://hidden-crag-34912.herokuapp.com/api/users/delete/many',
             { userIds: users }, {
             headers: {
                 token: token

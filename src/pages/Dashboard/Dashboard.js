@@ -38,7 +38,7 @@ const Dashboard = () => {
         // Get New Users (last 30 days)
         const getNewUsers = async () => {
             try {
-                const { data } = await axios.get('/api/users/new', {
+                const { data } = await axios.get('https://hidden-crag-34912.herokuapp.com/api/users/new', {
                     headers: {
                         token: admin.accessToken
                     }
@@ -53,7 +53,7 @@ const Dashboard = () => {
         // Get New Users (last 30 days)
         const getNewOrders = async () => {
             try {
-                const { data } = await axios.get('/api/orders/new', {
+                const { data } = await axios.get('https://hidden-crag-34912.herokuapp.com/api/orders/new', {
                     headers: {
                         token: admin.accessToken
                     }

@@ -37,7 +37,7 @@ const EditUser = () => {
         const fetchUser = async () => {
             setLoading(true);
             try {
-                const { data } = await axios.get(`/api/users/${params.userId}`, {
+                const { data } = await axios.get(`https://hidden-crag-34912.herokuapp.com/api/users/${params.userId}`, {
                     headers: {
                         token: admin.accessToken
                     }

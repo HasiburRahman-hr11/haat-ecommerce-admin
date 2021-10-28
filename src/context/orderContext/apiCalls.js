@@ -7,7 +7,7 @@ import { successNotify, errorNotify } from '../../utils/toastify';
 export const getAllOrders = async (dispatch, token) => {
     dispatch(getAllOrdersStart());
     try {
-        const { data } = await axios.get('/api/orders/', {
+        const { data } = await axios.get('https://hidden-crag-34912.herokuapp.com/api/orders/', {
             headers: {
                 token: token
             }
@@ -24,7 +24,7 @@ export const getAllOrders = async (dispatch, token) => {
 export const updateOrder = async (dispatch, orderId, orderData, token) => {
     dispatch(updateOrderStart());
     try {
-        const { data } = await axios.put(`/api/orders/edit/${orderId}`, orderData, {
+        const { data } = await axios.put(`https://hidden-crag-34912.herokuapp.com/api/orders/edit/${orderId}`, orderData, {
             headers: {
                 token: token
             }
@@ -43,7 +43,7 @@ export const updateOrder = async (dispatch, orderId, orderData, token) => {
 export const deleteOrder = async (dispatch, orderId, token) => {
     dispatch(deleteOrderStart());
     try {
-        const { data } = await axios.delete(`/api/orders/delete/${orderId}`, {
+        const { data } = await axios.delete(`https://hidden-crag-34912.herokuapp.com/api/orders/delete/${orderId}`, {
             headers: {
                 token: token
             }
@@ -61,7 +61,7 @@ export const deleteOrder = async (dispatch, orderId, token) => {
 export const deleteManyOrders = async (dispatch, orders, token) => {
     dispatch(deleteManyOrdersStart());
     try {
-        const { data } = await axios.post('/api/orders/delete/many',
+        const { data } = await axios.post('https://hidden-crag-34912.herokuapp.com/api/orders/delete/many',
             { orderIds: orders }, {
             headers: {
                 token: token

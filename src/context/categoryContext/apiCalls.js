@@ -8,7 +8,7 @@ export const addNewCategory = async (dispatch, formData, config, history) => {
     dispatch(createCategoryStart());
 
     try {
-        const { data } = await axios.post('/api/category/create', formData, config);
+        const { data } = await axios.post('https://hidden-crag-34912.herokuapp.com/api/category/create', formData, config);
         dispatch(createCategorySuccess(data));
         if(history){
             history.push(`/admin/categories/edit/${data._id}`);
@@ -27,7 +27,7 @@ export const updateCategory = async (dispatch, formData, config, catId) => {
     dispatch(updateCategoryStart());
 
     try {
-        const { data } = await axios.put(`/api/category/${catId}`, formData, config);
+        const { data } = await axios.put(`https://hidden-crag-34912.herokuapp.com/api/category/${catId}`, formData, config);
         dispatch(updateCategorySuccess(data));
         successNotify('Category Updated Successfully');
     } catch (error) {
@@ -41,8 +41,8 @@ export const updateCategory = async (dispatch, formData, config, catId) => {
 export const getAllCategories = async (dispatch) => {
     dispatch(getAllCategoriesStart());
     try {
-        const { data } = await axios.get('/api/category');
-        dispatch(getAllCategoriesSuccess(data))
+        const { data } = await axios.get('https://hidden-crag-34912.herokuapp.com/api/category');
+        dispatch(getAllCategoriesSuccess(data.categories))
     } catch (error) {
         console.log(error);
         dispatch(getAllCategoriesFailed(error))
@@ -54,7 +54,7 @@ export const getAllCategories = async (dispatch) => {
 export const deleteCategory = async (dispatch, catId, token) => {
     dispatch(deleteCategoryStart());
     try {
-        const { data } = await axios.delete(`/api/category/${catId}`, {
+        const { data } = await axios.delete(`https://hidden-crag-34912.herokuapp.com/api/category/${catId}`, {
             headers: {
                 token: token
             }
@@ -74,7 +74,7 @@ export const deleteCategory = async (dispatch, catId, token) => {
 export const deleteManyCategories = async (dispatch, categories, token) => {
     dispatch(deleteManyCategoriesStart());
     try {
-        const { data } = await axios.post('/api/category/delete/many',
+        const { data } = await axios.post('https://hidden-crag-34912.herokuapp.com/api/category/delete/many',
             { categoryIds: categories }, {
             headers: {
                 token: token

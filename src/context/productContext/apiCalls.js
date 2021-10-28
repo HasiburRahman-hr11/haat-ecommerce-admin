@@ -24,7 +24,7 @@ import { successNotify, errorNotify } from '../../utils/toastify';
 export const getAllProducts = async (dispatch) => {
     dispatch(getAllProductsStart());
     try {
-        const { data } = await axios.get('/api/products');
+        const { data } = await axios.get('https://hidden-crag-34912.herokuapp.com/api/products');
         dispatch(getAllProductsSuccess(data.products))
     } catch (error) {
         console.log(error);
@@ -37,7 +37,7 @@ export const addNewProduct = async (dispatch, formData, config, history) => {
     dispatch(createProductStart());
 
     try {
-        const { data } = await axios.post('/api/products/create', formData, config);
+        const { data } = await axios.post('https://hidden-crag-34912.herokuapp.com/api/products/create', formData, config);
 
         dispatch(createProductSuccess(data));
         history.push(`/admin/products/edit/${data._id}`);
@@ -55,7 +55,7 @@ export const updateProduct = async (dispatch, formData, config, productId) => {
     dispatch(updateProductStart());
 
     try {
-        const { data } = await axios.put(`/api/products/edit/${productId}`, formData, config);
+        const { data } = await axios.put(`https://hidden-crag-34912.herokuapp.com/api/products/edit/${productId}`, formData, config);
 
         dispatch(updateProductSuccess(data));
         successNotify('Product Updated Successfully');
@@ -71,7 +71,7 @@ export const updateProduct = async (dispatch, formData, config, productId) => {
 export const deleteProduct = async (dispatch, productId, token) => {
     dispatch(deleteProductStart());
     try {
-        const { data } = await axios.delete(`/api/products/${productId}`, {
+        const { data } = await axios.delete(`https://hidden-crag-34912.herokuapp.com/api/products/${productId}`, {
             headers: {
                 token: token
             }
@@ -92,7 +92,7 @@ export const deleteProduct = async (dispatch, productId, token) => {
 export const deleteManyProducts = async (dispatch, products, token) => {
     dispatch(deleteManyProductsStart());
     try {
-        const { data } = await axios.post('/api/products/delete/many',
+        const { data } = await axios.post('https://hidden-crag-34912.herokuapp.com/api/products/delete/many',
             { productIds: products }, {
             headers: {
                 token: token
