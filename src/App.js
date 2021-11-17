@@ -50,7 +50,7 @@ const App = () => {
       getAllUsers(dispatchUser, admin.accessToken);
 
       // Automatically Logout if Admin Token expired
-      jwtLogout(admin.accessToken , history);
+      jwtLogout(admin?.accessToken , history);
       
     }
   }, [dispatchProducts, dispatchCategory, dispatchOrder, admin, dispatchUser , history]);
